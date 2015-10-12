@@ -1,0 +1,279 @@
+{
+ "metadata": {
+  "name": "",
+  "signature": "sha256:ceffa66ac8a9a7f5d2df64905e95a7e93dfc64790fb4e152c12b244e254b7e38"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "heading",
+     "level": 2,
+     "metadata": {},
+     "source": [
+      "Regular expressions in python "
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import re"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 12
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.split(r'\\s*', 'here are some words'))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['here', 'are', 'some', 'words']\n"
+       ]
+      }
+     ],
+     "prompt_number": 17
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.split(r'(\\s*)', 'here   are     some words'))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['here', '   ', 'are', '     ', 'some', ' ', 'words']\n"
+       ]
+      }
+     ],
+     "prompt_number": 21
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.split(r'(s*)', 'here   are   some  some words'))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['here   are   ', 's', 'ome  ', 's', 'ome word', 's', '']\n"
+       ]
+      }
+     ],
+     "prompt_number": 22
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.split(r'[a-f]', 'lgfadylfblfrwfhwfljadljbf'))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['lg', '', '', 'yl', '', 'l', 'rw', 'hw', 'lj', '', 'lj', '', '']\n"
+       ]
+      }
+     ],
+     "prompt_number": 23
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.split(r'[a-f]', 'hfdF A kg' , re.I|re.M))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['h', '', 'F A kg']\n"
+       ]
+      }
+     ],
+     "prompt_number": 24
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.split(r'[a-fA-F]', 'hfdF A kg' , re.I|re.M))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['h', '', '', ' ', ' kg']\n"
+       ]
+      }
+     ],
+     "prompt_number": 25
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import urllib\n",
+      "sites='google yahoo cnn msn'.split()\n",
+      "\n",
+      "for s in sites:\n",
+      "    print ('Searching:' + s)\n",
+      "    try:\n",
+      "        u=urllib.urlopen('http://'+s+'.com')\n",
+      "    except:\n",
+      "        u=urllib.request.urlopen('http://'+s+'.com')\n",
+      "        \n",
+      "    text=u.read()\n",
+      "    title=re.findall(r'<title>+.*</title>+',str(text),re.I|re.M)\n",
+      "    print(title[0])"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Searching:google\n",
+        "<title>Google</title>"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "\n",
+        "Searching:yahoo\n",
+        "<title>Yahoo India</title>"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "\n",
+        "Searching:cnn\n",
+        "<title>CNN.com International - Breaking, World, Business, Sports, Entertainment and Video News</title>"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "\n",
+        "Searching:msn\n",
+        "<title>MSN India</title>"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "\n"
+       ]
+      }
+     ],
+     "prompt_number": 28
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.split(r'[^A-Z]', 'hfdF A kg' , re.I|re.M))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['', '', '', 'F', 'A', '', '', '']\n"
+       ]
+      }
+     ],
+     "prompt_number": 31
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.findall(r'[^A-Za-z0-9\\s]', 'h+f=dF A @k-g!' , re.I|re.M))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['+', '=', '@', '-', '!']\n"
+       ]
+      }
+     ],
+     "prompt_number": 33
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print (re.findall(r'[wW]oodchunks', 'woodchunks are great Woodchunks' , re.I|re.M))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "['woodchunks', 'Woodchunks']\n"
+       ]
+      }
+     ],
+     "prompt_number": 35
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}

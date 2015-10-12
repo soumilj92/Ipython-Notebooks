@@ -1,0 +1,246 @@
+{
+ "metadata": {
+  "name": "",
+  "signature": "sha256:3d01aa3b75093b5b99f1a76c3a931add41aa2ed247fec8ad8d1916e00a024bc8"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import sys\n",
+      "import random "
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 1
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def play():\n",
+      "    Enter = \"Pls press enter to continue ..... \"\n",
+      "    print \"Welcome to the Guessing game \" \n",
+      "    print \"Pls guess a number between 1-10 \"\n",
+      "\n",
+      "    computer_num=random.randint(1,10)\n",
+      "    guess1= raw_input(\"My first guess is : \")\n",
+      "    guess1=int(guess1)\n",
+      "    if (guess1 == computer_num) :\n",
+      "        print \"You win\"\n",
+      "        raw_input(  Enter  )\n",
+      "        sys.exit(0)\n",
+      "    elif (guess1<computer_num):\n",
+      "            print \"Sorry try again \"\n",
+      "            print \"You have 2 guesses remaining \"\n",
+      "            print \"Try to increase your guess bro !! \"\n",
+      "            guess2= raw_input(\"My second guess is : \")\n",
+      "            guess2=int(guess2)\n",
+      "            if (guess2 == computer_num) :\n",
+      "                print \"You win\"\n",
+      "                raw_input(  Enter  )\n",
+      "                sys.exit(0)\n",
+      "            elif (guess2<computer_num):\n",
+      "                print \"Sorry try again \"\n",
+      "                print \"You have 1 guess remaining \"\n",
+      "                print \"Try to increase your guess more more  bro !! \"\n",
+      "                guess3= raw_input(\"My Third guess is : \")\n",
+      "                guess3=int(guess3)\n",
+      "                if (guess3 == computer_num) :\n",
+      "                    print \"You win\"\n",
+      "                    raw_input(  Enter  )\n",
+      "                    sys.exit(0)\n",
+      "                else: \n",
+      "                    decision= raw_input(\"Sorry!! you finished your chances !! Want to play the game again ??(y/n)  \")\n",
+      "                    decision=str(decision)\n",
+      "                    decision=decision.upper()\n",
+      "                    if(decision==Y):\n",
+      "                        play()\n",
+      "                    else:\n",
+      "                        print \"nice playing with you \"\n",
+      "                        sys.exit(0)\n",
+      "            else:\n",
+      "                print \"Sorry try again \"\n",
+      "                print \"You have 1 guess remaining \"\n",
+      "                print \"Try to decrease your now guess  bro !! \"\n",
+      "                guess3= raw_input(\"My Third guess is : \")\n",
+      "                guess3=int(guess3)\n",
+      "                if (guess3 == computer_num) :\n",
+      "                    print \"You win\"\n",
+      "                    raw_input(  Enter  )\n",
+      "                    sys.exit(0)\n",
+      "                else: \n",
+      "                    decision= raw_input(\"Sorry!! you finished your chances !! Want to play the game again ??(y/n)  \")\n",
+      "                    decision=str(decision)\n",
+      "                    decision=decision.upper()\n",
+      "                    if(decision==Y):\n",
+      "                        play()\n",
+      "                    else:\n",
+      "                        print \"nice playing with you \"\n",
+      "                        sys.exit(0)\n",
+      "    else:\n",
+      "        print \"Sorry try again \"\n",
+      "        print \"You have 2 guesses remaining \"\n",
+      "        print \"Try to decrease your guess bro !! \"\n",
+      "        guess2= raw_input(\"My second guess is : \")\n",
+      "        guess2=int(guess2)\n",
+      "        if (guess2 == computer_num) :\n",
+      "                print \"You win\"\n",
+      "                raw_input(Enter)\n",
+      "                sys.exit(0)\n",
+      "        elif (guess2<computer_num):\n",
+      "                print \"Sorry try again \"\n",
+      "                print \"You have 1 guess remaining \"\n",
+      "                print \"Try to increase your guess now bro !! \"\n",
+      "                guess3= raw_input(\"My Third guess is : \")\n",
+      "                guess3=int(guess3)\n",
+      "                if (guess3 == computer_num) :\n",
+      "                    print \"You win\"\n",
+      "                    raw_input(  Enter  )\n",
+      "                    sys.exit(0)\n",
+      "                else: \n",
+      "                    decision= raw_input(\"Sorry!! you finished your chances !! Want to play the game again ?? (y/n) \")\n",
+      "                    decision=str(decision)\n",
+      "                    decision=decision.upper()\n",
+      "                    if(decision==Y):\n",
+      "                        play()\n",
+      "                    else:\n",
+      "                        print \"nice playing with you \"\n",
+      "                        sys.exit(0)\n",
+      "        else:\n",
+      "            print \"Sorry try again \"\n",
+      "            print \"You have 1 guess remaining \"\n",
+      "            print \"Try to decrease your guess more more bro !! \"\n",
+      "            guess3= raw_input(\"My Third guess is : \")\n",
+      "            guess3=int(guess3)\n",
+      "            if (guess3 == computer_num) :\n",
+      "                print \"You win\"\n",
+      "                raw_input(  Enter  )\n",
+      "                sys.exit(0)\n",
+      "            else: \n",
+      "                decision= raw_input(\"Sorry!! you finished your chances !! Want to play the game again ??(y/n) \")\n",
+      "                decision=str(decision)\n",
+      "                decision=decision.upper()\n",
+      "                if(decision=='Y'):\n",
+      "                    play()\n",
+      "                else:\n",
+      "                    print \"nice playing with you \"\n",
+      "                    sys.exit(0)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 43
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "play()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Welcome to the Guessing game \n",
+        "Pls guess a number between 1-10 \n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "My first guess is : 3\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Sorry try again \n",
+        "You have 2 guesses remaining \n",
+        "Try to decrease your guess bro !! \n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "My second guess is : 1\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Sorry try again \n",
+        "You have 1 guess remaining \n",
+        "Try to increase your guess now bro !! \n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "My Third guess is : 2\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "You win\n"
+       ]
+      },
+      {
+       "name": "stdout",
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Pls press enter to continue ..... y\n"
+       ]
+      },
+      {
+       "ename": "SystemExit",
+       "evalue": "0",
+       "output_type": "pyerr",
+       "traceback": [
+        "An exception has occurred, use %tb to see the full traceback.\n",
+        "\u001b[0;31mSystemExit\u001b[0m\u001b[0;31m:\u001b[0m 0\n"
+       ]
+      },
+      {
+       "output_type": "stream",
+       "stream": "stderr",
+       "text": [
+        "To exit: use 'exit', 'quit', or Ctrl-D.\n"
+       ]
+      }
+     ],
+     "prompt_number": 44
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
